@@ -17,3 +17,9 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+// Component function
+function createCarousel() {
+  // Define elements
+  const 
+}

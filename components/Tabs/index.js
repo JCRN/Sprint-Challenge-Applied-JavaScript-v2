@@ -14,14 +14,14 @@ const topics = document.querySelector('.topics')
 // Axios GET request
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
 .then(result => {
-    result.data.topics.forEach(topic => topics.appendChild(tabs(topic)))      
+    result.data.topics.forEach(topic => topics.appendChild(createTab(topic)))      
 })
 .catch(error => {
     alert('ERROR', error)
 })
 
 // Componenet function
-function tabs(content) {
+function createTab(content) {
     // Define elements
     const tab = document.createElement('div')
 

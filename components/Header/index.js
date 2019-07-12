@@ -13,9 +13,9 @@
 const headerContainer = document.querySelector('.header-container')
 
 // Add componenet to the DOM
-headerContainer.appendChild(Header())
+headerContainer.appendChild(createHeader())
 
-function Header() {
+function createHeader() {
     // Define elements
     const header = document.createElement('div')
     const headerDate = document.createElement('span')
