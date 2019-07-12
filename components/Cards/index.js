@@ -17,3 +17,61 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+// Get top level element
+const cards = document.querySelector('.cards-container')
+
+// Axios GET request
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then(results => {    
+    // Get / set article cards - per topic    
+    const bootStrap = results.data.articles.bootstrap 
+    bootStrap.map(obj => cards.appendChild(createArticleCard(obj)))
+
+    const javascript = results.data.articles.javascript
+    javascript.map(obj => cards.appendChild(createArticleCard(obj)))
+
+    const jquery = results.data.articles.jquery
+    jquery.map(obj => cards.appendChild(createArticleCard(obj)))
+
+    const node = results.data.articles.node
+    node.map(obj => cards.appendChild(createArticleCard(obj)))
+
+    const technology = results.data.articles.technology
+    technology.map(obj => cards.appendChild(createArticleCard(obj)))
+})
+.catch(error => {
+    alert('ERROR', error)
+})
+
+// Component function
+function createArticleCard(article) {
+    // Define elements
+    const card = document.createElement('div')
+    const cardHeadline = document.createElement('div')
+    const cardAuthor = document.createElement('div')
+    const cardAuthorImgContainer = document.createElement('div')
+    const cardAuthorImgContainerImg = document.createElement('img')
+    const cardAuthorName = document.createElement('span')
+
+    // Set class names
+    card.classList.add('card')
+    cardHeadline.classList.add('headline')
+    cardAuthor.classList.add('author')
+    cardAuthorImgContainer.classList.add('img-container')
+
+    // Set content
+    cardHeadline.textContent = article.headline
+    cardAuthorImgContainerImg.src = article.authorPhoto
+    cardAuthorName.textContent = `By ${article.authorName}`
+
+    // Build component
+    card.appendChild(cardHeadline)
+    card.appendChild(cardAuthor)
+    cardAuthor.appendChild(cardAuthorImgContainer)
+    cardAuthorImgContainer.appendChild(cardAuthorImgContainerImg)
+    cardAuthor.appendChild(cardAuthorName)
+
+    // Return component
+    return card
+}
