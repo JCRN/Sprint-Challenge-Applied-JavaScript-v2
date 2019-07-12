@@ -27,7 +27,6 @@ const carouselContainer = document.querySelector('.carousel-container')
 // Add carousel 
 carouselContainer.appendChild(createCarousel())
 
-
 // Next / previous controls
 function plusImage(num) {
   showImage(imageIndex += num)
@@ -36,8 +35,7 @@ function plusImage(num) {
 // Show image function
 function showImage(num) {
   const images = document.querySelectorAll('.carousel img')
-  images.forEach(img => img.style.display = 'none')
-  
+  images.forEach(img => img.style.display = 'none')  
   if (num > images.length) {
     imageIndex = 1
   } else if (num < 1 ) {
@@ -76,6 +74,9 @@ function createCarousel() {
   carouselImg2.src = './assets/carousel/computer.jpeg'
   carouselImg3.src = './assets/carousel/trees.jpeg'
   carouselImg4.src = './assets/carousel/turntable.jpeg'
+
+  // Show initial img
+  carouselImg1.style.display = 'block'
   
   // Add button events
   carouselLeftBtn.addEventListener('click', event => {plusImage(-1)})
