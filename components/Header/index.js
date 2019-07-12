@@ -10,7 +10,7 @@
 // And add it to the DOM in the .headerContainer component
 
 // Get top level element
-const headerContainer = document.querySelector('.headerContainer')
+const headerContainer = document.querySelector('.header-container')
 
 // Add componenet to the DOM
 headerContainer.appendChild(Header())
