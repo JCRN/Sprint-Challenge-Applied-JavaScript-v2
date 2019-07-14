@@ -24,21 +24,13 @@ const cards = document.querySelector('.cards-container')
 // Axios GET request
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(results => {    
-    // Get / set article cards - per topic    
-    const bootStrap = results.data.articles.bootstrap 
-    bootStrap.map(obj => cards.appendChild(createArticleCard(obj)))
-
-    const javascript = results.data.articles.javascript
-    javascript.map(obj => cards.appendChild(createArticleCard(obj)))
-
-    const jquery = results.data.articles.jquery
-    jquery.map(obj => cards.appendChild(createArticleCard(obj)))
-
-    const node = results.data.articles.node
-    node.map(obj => cards.appendChild(createArticleCard(obj)))
-
-    const technology = results.data.articles.technology
-    technology.map(obj => cards.appendChild(createArticleCard(obj)))
+    let articles = results.data.articles
+    console.log('articles: ', articles)
+    for (topic in articles) {        
+        console.log('individual topic: ', topic)
+        console.log('and its values: ', articles[topic])
+        articles[topic].forEach(article => cards.appendChild(createArticleCard(article)))
+    }
 })
 .catch(error => {
     alert('ERROR', error)
