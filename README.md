@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+The DOM, or Document Object Model, is a hierarchical representation of how a browser constructs a document within the Browser Object Model, or BOM. The DOM provides an easy way to access individual elements (nodes), read/write their properties, and execute their methods.   
+
 2. What is an event?
+
+An event is anything that can occur on or within a webpage. From the initial loading of the page to server requests, standard input or ouput, etc.   
 
 3. What is an event listener?
 
+A programatic way of identifying that an event has occured. 
+
 4. Why would we convert a NodeList into an Array?
 
+To make array methods available for us to apply to the Nodelist.
+
 5. What is a component?
+
+A programtic way of modularizing / compartmentalizing specific pieces of code. Components are practical for code reuse, standardizing large scale projects, and most significantly DRY coding.
 
 ### Git Set up
 
